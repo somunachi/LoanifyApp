@@ -26,7 +26,7 @@ const Message = ({ text, user = 'other', audioURL, fileURL }) => {
     className={`${msg.message01} ${user === 'me' ? msg.flexEnd : msg.flexStart}`}
   >
       {user === 'other' && <img src={img1} className={msg.avatar} alt="User Avatar" />}
-      <div className={msg.text_messages_container}>
+      <div className={msg.text_messages}>
         {renderMessageContent()}
       </div>
       {user === 'me' && <img src={img2} className={msg.avatar} alt="User Avatar" />}
