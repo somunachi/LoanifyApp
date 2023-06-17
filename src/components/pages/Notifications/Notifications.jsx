@@ -2,6 +2,7 @@ import notify from './notifications.module.css';
 import data from './notifydata.jsx';
 import borrower from '../../../assets/active borrower avatar.png';
 import { Link } from 'react-router-dom';
+import {IoSettingsOutline} from 'react-icons/io5'
 
 
 const Notifications = () => {
@@ -13,8 +14,7 @@ const Notifications = () => {
           <span className={notify.number}>8</span>
         </div>
         <Link to='/settings/notifications'>
-        <i className="bi bi-gear"></i>
-
+        <IoSettingsOutline/>
         </Link>
       </div>
 
