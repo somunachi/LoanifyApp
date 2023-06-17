@@ -1,5 +1,4 @@
-// import { HStack, Text } from '@chakra-ui/react';
-import { HStack , Text } from '@chakra-ui/react'
+// import { div, Text } from '@chakra-ui/react';
 import img1 from '../../../assets/User.jpg'
 import img2 from '../../../assets/Avatar (3).png';
 import msg from './message.module.css';
@@ -19,17 +18,17 @@ const Message = ({ text, user = 'other', audioURL, fileURL }) => {
         </a>
       );
     } else {
-      return <Text>{text}</Text>;
+      return <div>{text}</div>;
     }
   };
 
   return (
-    <HStack
-      alignSelf={user === 'me' ? 'flex-end' : 'flex-start'}
-      borderRadius={'base'}
-      bg="gray.100"
-      paddingY={'10'}
-      paddingX={user === 'me' ? '4' : '2'}
+    <div
+      // alignSelf={user === 'me' ? 'flex-end' : 'flex-start'}
+      // borderRadius={'base'}
+      // bg="gray.100"
+      // paddingY={'10'}
+      // paddingX={user === 'me' ? '4' : '2'}
       className={msg.message01}
     >
       {user === 'other' && <img src={img1} className={msg.avatar} alt="User Avatar" />}
@@ -37,7 +36,7 @@ const Message = ({ text, user = 'other', audioURL, fileURL }) => {
         {renderMessageContent()}
       </div>
       {user === 'me' && <img src={img2} className={msg.avatar} alt="User Avatar" />}
-    </HStack>
+    </div>
   );
 };
 
