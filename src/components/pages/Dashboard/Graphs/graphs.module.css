@@ -1,0 +1,38 @@
+.graphsContainer{
+    padding-top: 60px;
+    width: 1040px;
+    /* background-color: red; */
+}
+
+.graphsBlock_one, .graphsBlock_two{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 4rem; */
+}
+
+.graphsBlock_two{
+    margin-top: 45px;
+}
+
+.completed_defaulted{
+    width: 480px;
+    background-color: rgba(240, 244, 252, 0.8);
+    padding: 2rem;
+    
+    
+
+}
+
+.header{
+    border-radius: 8px;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
+    background-color: #3969DC;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}

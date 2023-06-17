@@ -1,0 +1,75 @@
+.pieblock {
+    width: 1040px;
+    border: 2px solid #BDE3FF;
+    border-radius: 16px;
+    height: 550px;
+    padding: 30px;
+    margin-top: 60px;
+    position: relative;
+}
+.pie_head {
+    background: #3969DC;
+    border-radius: 8px;
+    padding: 1px 1px;
+    width: 288px;
+    height: 47px;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    color: white;
+}
+.piechat {
+    display: flex;
+    width: 850px;
+}
+.Keys{
+    position: relative;
+    left: 460px;
+}
+.pie_show {
+    margin-top: rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 16px 0;
+    color: white;
+    margin-left: 5rem;
+}
+.pie_show p {
+    border-radius: 5px;
+    padding: 1px 1px;
+    width: 288px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.pie_blue {
+    background: #3969DC;
+}
+.pie_green {
+    background: #00D43D;
+}
+.pie_wine {
+    background: #D30744;
+}
+.pie_red {
+    background: #DC3969;
+}
+
+.pie_show span {
+    color: #FFFFFE;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #010E2A;
+    width: 85px;
+}
+.Keys{
+    margin-top: 5rem;
+    margin-left: 3rem; ;
+}

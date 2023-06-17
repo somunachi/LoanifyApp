@@ -1,0 +1,165 @@
+.prediction_table{
+    width: 1100px;
+    /* background-color: red; */
+}
+.prediction_table_table{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    /* margin-right: -1rem; */
+    /* margin: 0; */
+    /* height: 300px; */
+}
+
+.block_one, .block_two{
+    display: flex;
+    padding-left: 12px;
+}
+
+.block_two{
+    margin-top: 50px;
+}
+
+.overviewBlock{
+    display: flex;
+    padding-right: 30px;
+}
+
+.allLoan, .NewApp, .pending, .activeLoan, .dueLoan, .extended, .defaulted, .closed{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+    padding: 10px;
+    background: #FFFFFE;
+    margin-right: 1.8rem;
+    margin-top: 3rem;
+}
+
+.percentageBlock{
+    display: flex;
+    align-items: center;
+    /* background-color: blue; */
+    
+}
+
+.percentageBlock p{
+    font-weight: 500;
+    gap: 5px;
+    color: black;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.allLoan{
+    border-bottom: 5px solid #0744D3;
+}
+
+.NewApp{
+    border-bottom: 5px solid #00D43D;
+}
+
+.pending{
+    border-bottom: 5px solid #F3B516;
+}
+
+.activeLoan{
+    border-bottom: 5px solid #D30744;
+}
+
+.dueLoan{
+    border-bottom: 5px solid #010E2A;
+}
+
+.extended{
+    border-bottom: 5px solid #297F04;
+}
+
+.defaulted{
+    border-bottom: 5px solid #A90636;
+}
+
+.closed{
+    border-bottom: 5px solid #6A8FE5;
+}
+
+.dataBlue p{
+    color: #717070;
+}
+
+.dataLemon p, .dataGreen p, .dataYellow p, .dataRed p, .dataDeep_Blue, .dataGreen, .dataDark_red, .dataSky_blue{
+    color: #010E2A;
+}
+
+.dataBlue p, .dataLemon p, .dataGreen p, .dataYellow p, .dataRed p, .dataDeep_Blue p, .dataGreen p, .dataDark_red p, .dataSky_blue p{
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 7px;
+}
+
+.allLoanIcon, .NweAppIcon, .pendingIcon, .activeLoanIcon, .dueLoanIcon, .defaultedIcon, .extendedIcon, .closedIcon{
+    height: 15px;
+    width: 15px;
+    align-self: center;
+    margin-top: -6px; 
+    /* background-color: red; */
+    /* margin-top: -5px;     */
+}
+
+.allLoanText, .NewAppText, .pendingText, .activeLoanText, .dueLoanText, .extendedText, .defaultedText, .closedText{
+    font-size: 20px;
+}
+
+.figure_blue p, .figure_lemon p, .pendingText p, .activeLoanText p, .dueLoanText p, .figure_green p, .figure_Dark_red p, .closedText p{
+    font-size: 22px;
+    margin-bottom: 23px;
+}
+
+.allLoanIcon, .allLoanText{
+    color: #0744D3;
+    margin-right: 5px;
+
+}
+
+.NweAppIcon, .NewAppText{
+  color: #00D43D;
+  margin-right: 5px;
+
+}
+
+.pendingIcon, .pendingText{
+    color: #F3B516;
+    margin-right: 5px;
+
+}
+
+.activeLoanIcon, .activeLoanText{
+    color: #D30744;
+    margin-right: 5px;
+
+}
+
+.dueLoanIcon, .dueLoanText{
+    color: #010E2A;
+    margin-right: 5px;
+
+}
+
+.extendedIcon, .extendedText{
+    color: #297F04;
+    margin-right: 5px;
+
+}
+
+.defaultedIcon, .defaultedText{
+    color: #A90636;
+    margin-right: 5px;
+
+}
+
+.closedIcon, .closedText{
+    color: #6A8FE5;
+    margin-right: 5px;
+
+}
+

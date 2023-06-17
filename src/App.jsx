@@ -1,15 +1,24 @@
-import { useState } from 'react'
+import './App.css'
+import Nav from './components/Header/Nav'
+import Side from './components/SideMenu/Side'
+import PageContent from './components/pages/PageContent'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 function App() {
-  
 
-  return (
-    <>
-      <p>Testing out this space</p>
-      <p>Try Again!</p>
-    </>
-  )
+    return (
+        <Router>
+            <div className='App'>
+                <Nav/>
+                <div className='sideandpage'>
+                    <Side/>
+                    <PageContent/>
+                </div>
+
+            </div>
+        </Router>
+    );
 }
 
 export default App
