@@ -1,22 +1,17 @@
 .messageNav{
     background-color: rgba(240, 244, 252, 1);
-    /* background-color: red; */
     height: 40px;
     width: 1040px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding-left: 8px;
     font-weight: 700;
     position: fixed;
     z-index: 13;
 }
-
 .messageNav a{
     color: #000;
-    /* background-color: red; */
 }
-
 .icon{
     margin-left: 5px;
     margin-right: 5px;
@@ -82,7 +77,6 @@ a{
     align-items: center;
     flex-shrink: 0;
 }
-
 .flexEnd {
     display: flex;
     justify-content: flex-end;
@@ -91,7 +85,6 @@ a{
     margin-right: 0;
     margin-left: 10px;
   }
-  
   .flexStart {
     display: flex;
     justify-content: flex-start;
@@ -100,10 +93,10 @@ a{
     margin-left: 0;
     margin-right: 10px;
   }
-  
 .message01{
     max-width: 550px;
     display: flex;
+    /* background-color: green; */
     align-items: center;
 }
 .text_messages_container{
@@ -133,6 +126,8 @@ a{
     height: 500px;
     overflow-y: scroll;
     width: 1040px;
+    /* background-color: red; */
+
 }
 .user_Msg{
     width: 1040px;

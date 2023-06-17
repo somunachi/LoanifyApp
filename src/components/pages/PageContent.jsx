@@ -7,6 +7,7 @@ import Notifications from './Notifications/Notifications';
 import Support from './Support/Support';
 import Faq from './Support/Faq';
 import UserMsg from './Messages/UserMsg';
+import Client from './Clients/Client'
 
 function PageContent() {
  
@@ -19,6 +20,7 @@ function PageContent() {
           <Route exact path="/support" element={<Support />} />
           <Route exact path="/support/Faq" element={<Faq />} />
           <Route exact path="/messages/user" element={<UserMsg />} />
+          <Route exact path="/clients" element={<Client />} />
         </Routes>
       </div>
   );
