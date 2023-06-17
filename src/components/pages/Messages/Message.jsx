@@ -1,5 +1,5 @@
 // import { div, Text } from '@chakra-ui/react';
-import img1 from '../../../assets/User.jpg'
+import img1 from '../../../assets/user.jpg'
 import img2 from '../../../assets/Avatar (3).png';
 import msg from './message.module.css';
 import { FaFile } from 'react-icons/fa';
