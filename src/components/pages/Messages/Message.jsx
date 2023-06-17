@@ -1,4 +1,3 @@
-// import { div, Text } from '@chakra-ui/react';
 import img1 from '../../../assets/user.jpg'
 import img2 from '../../../assets/Avatar (3).png';
 import msg from './message.module.css';
@@ -24,13 +23,8 @@ const Message = ({ text, user = 'other', audioURL, fileURL }) => {
 
   return (
     <div
-      // alignSelf={user === 'me' ? 'flex-end' : 'flex-start'}
-      // borderRadius={'base'}
-      // bg="gray.100"
-      // paddingY={'10'}
-      // paddingX={user === 'me' ? '4' : '2'}
-      className={msg.message01}
-    >
+    className={`${msg.message01} ${user === 'me' ? msg.flexEnd : msg.flexStart}`}
+  >
       {user === 'other' && <img src={img1} className={msg.avatar} alt="User Avatar" />}
       <div className={msg.text_messages_container}>
         {renderMessageContent()}

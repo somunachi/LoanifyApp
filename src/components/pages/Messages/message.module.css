@@ -79,6 +79,15 @@ a{
     height: 40px;
     border-radius: 50%;
 }
+
+.flexEnd {
+    justify-content: flex-end;
+  }
+  
+  .flexStart {
+    justify-content: flex-start;
+  }
+  
 .message01{
     max-width: 550px;
     display: flex;
