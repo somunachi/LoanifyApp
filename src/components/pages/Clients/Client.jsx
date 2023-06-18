@@ -4,6 +4,7 @@ import { ClientInfo } from './ClientData';
 import { Link } from 'react-router-dom';
 import { BiChevronDown } from 'react-icons/bi'
 import { IoIosClose } from 'react-icons/io'
+import { CSVLink } from 'react-csv';
 
 
 
@@ -100,6 +101,12 @@ const handleAllCheckChange = (e) => {
   }));
   setFilteredData(updatedData);
 }
+
+const convertToCSV = () => {
+  const headers = Object.keys(filteredData[0]);
+  const rows = filteredData.map((client) => headers.map((header) => client[header]));
+  return [headers, ...rows];
+};
   
 const filteredClients = filterStatus === 'All' ? ClientInfo : ClientInfo.filter((client) => client.LoanStatus === filterStatus);
 
@@ -163,7 +170,9 @@ const filteredClients = filterStatus === 'All' ? ClientInfo : ClientInfo.filter(
                               <div className={css.select_options}>
                                 <p className={css.options}>PDF</p>
                                 <p className={css.options}>Excel</p>
+                                <CSVLink data={convertToCSV()} filename="client_data.csv">
                                 <p className={css.options}>CSV</p>
+                                </CSVLink>
                               </div>
                        )}
                       </div>
@@ -171,7 +180,6 @@ const filteredClients = filterStatus === 'All' ? ClientInfo : ClientInfo.filter(
                   </div>
                 </div>
         </div>
-                
         <div className={css.clientsblock}>
         <div className={css.clientsdata}>
         <input type="checkbox" name="checkall" id="check" onChange={handleAllCheckChange} className={css.check}/>
