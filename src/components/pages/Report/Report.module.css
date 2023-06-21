@@ -1,11 +1,32 @@
+.reportsNav{
+    background-color: rgba(240, 244, 252, 1);
+    height: 40px;
+    width: 1040px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    font-weight: 700;
+    position: fixed;
+    z-index: 13;
+  }
+  .reportsNav a{
+    color: #000;
+  }
+  .icon{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
 .report{
     overflow-x: hidden;
     overflow-y: scroll;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    /* gap: 20px; */
+    width: 1040px;
     position: relative;
     height: 55vw;
-     margin-top: -80px;
+    margin-top: 2rem;
 
 }
 .chart span{
@@ -33,6 +54,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 1rem;
 }
 .totalnum{
     display: flex;
@@ -51,13 +73,15 @@
     border: 0.5px solid #000000;
     font-size: 15px;
     border-radius: 8px;
+    margin-bottom: .5rem;
 }
 .nu{
-    gap: 0px;
+    /* gap: 0px; */
     padding: 8px 16px;
     font-size: 15px;
     font-weight: bold;
     color: #000000;
+    margin-bottom: .5rem;
 }
 .chart span p{
     margin-top: 10px;
@@ -66,7 +90,7 @@
 
 }
 .default{
-    margin-top: -7rem;
+    margin-top: -6rem;
     /* background-color: red; */
 }
 .payment{
@@ -75,6 +99,8 @@
     height: 784px;
     top: 184px;
 }
+
+
 
 .activity{
     width: 490px;
@@ -147,12 +173,17 @@ font-weight: 700;
 font-size: 18px;
 line-height: 35px;
 color: #000000;
-
 }
+
+/* .nu{
+    margin-bottom: .5rem;
+} */
+
 .footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 1rem;
 
 }
 .footertotal{
@@ -182,6 +213,7 @@ border-radius: 8px;
     gap: 5px;
     margin-bottom: 12px;
 }
+
 .df .dot{
     width: 10px;
     background-color: #D30744;
@@ -193,7 +225,7 @@ border-radius: 8px;
     flex-direction: column;
     padding: 16px;
     gap: 30px;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     font-weight: bold;
     color: #000000;
 }
@@ -240,9 +272,11 @@ border-radius: 8px;
 .month{
     display: flex;
     justify-content: space-between;
-    padding: 10px 5px;
+    padding-bottom: 6rem;
+    padding-top: 10px ;
     align-items: center;
     height: 30px;
+    margin-top: .5rem;
 
 }
 .month span:nth-child(1){
@@ -263,8 +297,11 @@ border-radius: 8px;
     display: flex;
     padding-top: 2rem;
     justify-content: space-between;
-    gap: 6rem;
-    padding-top: 7rem;
+    gap: 10rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 0.5px solid white;
+    border-bottom: 0.5px solid white;
 }
 .second1{
     display: flex;
@@ -277,7 +314,7 @@ border-radius: 8px;
     color: #000000;
 }
 .approved{
-    margin-top: 3rem;
+    margin-top: 2rem;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -297,5 +334,5 @@ border-radius: 8px;
 .pgraph{
     margin-top: 40px;
     background-color: white;
-    width: 350px;
+    width: 400px;
 }

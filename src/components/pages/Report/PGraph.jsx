@@ -27,9 +27,9 @@ export default class PGraph extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="80%" height={300}>
+      <ResponsiveContainer width="100%" height={270}>
         <BarChart
-          width={100}
+          width={350}
           height={900}
           data={data}
           margin={{

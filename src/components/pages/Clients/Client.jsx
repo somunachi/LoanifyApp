@@ -1,78 +1,80 @@
-import { useEffect, useState } from 'react'
-import css from './client.module.css'
-import { ClientInfo } from './ClientData';
-import { Link } from 'react-router-dom';
-import { BiChevronDown } from 'react-icons/bi'
-import { IoIosClose } from 'react-icons/io'
-import { CSVLink } from 'react-csv';
-
-
+import { useEffect, useState, useRef } from "react";
+import css from "./client.module.css";
+import { ClientInfo } from "./ClientData";
+import { Link } from "react-router-dom";
+import { BiChevronDown } from "react-icons/bi";
+import { IoIosClose } from "react-icons/io";
+import { CSVLink } from "react-csv";
+import ReactToPrint from "react-to-print";
+import { useReactToPrint } from "react-to-print";
+import { BiChevronRight } from "react-icons/bi";
+import {CiFilter, CiSearch} from 'react-icons/ci'
 
 const Client = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [search, setSearch] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [search, setSearch] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenPrint, setIsOpenPrint] = useState(false);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [isOpenExport, setIsOpenExport] = useState(false);
   const [selectFormatExport, setSelectFormatExport] = useState(false);
   const [selectFormatPrint, setSelectFormatPrint] = useState(false);
-  const [filterStatus, setFilterStatus] = useState('All'); 
+  const [filterStatus, setFilterStatus] = useState("All");
+  const applicationNumber = "Application Number"; 
+  const fullName = "Full Name"; 
+  const loanStatus = "Loan Status"
+  const date = "Date"; 
+  const documentTitle = `${applicationNumber} ${fullName} ${loanStatus} ${date}`;
+  
 
 
-  useEffect(()=>{
-    setFilteredData(ClientInfo)
-  }, [searchQuery])
+  const componentRef = useRef();
+  const conponentPDF = useRef();
 
+  useEffect(() => {
+    setFilteredData(ClientInfo);
+  }, [searchQuery]);
 
-//for filter
+  //for filter
   const handleFilterToggle = () => {
-    setIsOpen(!isOpen)
-   }
+    setIsOpen(!isOpen);
+    setIsOpenExport(false);
 
-   const handleFilterClose = () => {
-    setIsOpen(false)
+  };
+
+  const handleFilterClose = () =>{
+   setIsOpen(false);
+   
   }
 
   //for filter options
   const handleOptionChange = (e) => {
-    setSelectedOption(e.target.value)
-  }
+    setSelectedOption(e.target.value);
+  };
 
   const handleFilterClick = (status) => {
     setFilterStatus(status);
     setIsOpen(false);
   };
 
-
-//for print
-    const handlePrintToggle = () => {
-    setIsOpenPrint(!isOpenPrint)
-    setIsOpenExport(false)
-   }
-   
-   const handlePrintClose = () => {
-    setIsOpenPrint(false)
-  }
-
-  const handleSelectFormatPrintToggle = () => {
-    setSelectFormatPrint(!selectFormatPrint)
-  }
-
   //for export
   const handleExportToggle = () => {
-    setIsOpenExport(!isOpenExport)
-    setIsOpenPrint(false)
-   }
-   
-   const handleExportClose = () => {
-    setIsOpenExport(false)
+    setIsOpenExport(!isOpenExport);
+    setIsOpen(false);
+
+  };
+
+  const handleExportClose = () => {
+    setIsOpenExport(false);
+  };
+  const handleSelectFormatPrintToggle = () => {
+    setIsOpenFilter(!isOpenFilter)
   }
 
   const handleSelectFormatExportToggle = () => {
-    setSelectFormatExport(!selectFormatExport)
-  }
+    setSelectFormatExport(!selectFormatExport);
+  };
 
   //for search input
   const handleSearchChange = (e) => {
@@ -84,9 +86,8 @@ const Client = () => {
   const handleCheckboxChange = (e, clientId) => {
     const updatedData = filteredClients.map((client) => {
       if (client.id === clientId) {
-        console.log(client)
+        console.log(client);
         return { ...client, checked: e.target.checked };
-       
       }
       console.log(client.id);
       return client;
@@ -94,159 +95,241 @@ const Client = () => {
     setFilteredData(updatedData);
   };
 
-const handleAllCheckChange = (e) => {
-  const updatedData = filteredClients.map((client) => ({
-    ...client,
-    checked: e.target.checked
-  }));
-  setFilteredData(updatedData);
-}
+  const handleAllCheckChange = (e) => {
+    const updatedData = filteredClients.map((client) => ({
+      ...client,
+      checked: e.target.checked,
+    }));
+    setFilteredData(updatedData);
+  };
 
-const convertToCSV = () => {
-  const headers = Object.keys(filteredData[0]);
-  const rows = filteredData.map((client) => headers.map((header) => client[header]));
-  return [headers, ...rows];
-};
-  
-const filteredClients = filterStatus === 'All' ? ClientInfo : ClientInfo.filter((client) => client.LoanStatus === filterStatus);
+  const convertToCSV = () => {
+    const headers = Object.keys(filteredData[0]);
+    const rows = filteredData.map((client) =>
+      headers.map((header) => client[header])
+    );
+    return [headers, ...rows];
+  };
+
+  const filteredClients =
+    filterStatus === "All"
+      ? ClientInfo
+      : ClientInfo.filter((client) => client.LoanStatus === filterStatus);
+
+  const generatePDF = useReactToPrint({
+    content: ()=> conponentPDF.current,
+    documentTitle: "Clientdata",
+    // onAfterPrint:()=>alert('Page saved in PDF')
+  })
 
   return (
-    <main className={css.main_container}>
-      
-       <div className={css.details_client_client}>
-        <div className={css.component1_client_block}>
-        <div className={css.component1_client}>
-                   <div className={css.component101}>
-                   <i className={`bi bi-search ${css.searchicon}`}></i>
-                    <input type="text" placeholder='Muhammadu Buhari' className={css.search} value={searchQuery} onChange={handleSearchChange}/>
-                   </div>
-                    
-                    <div className={css.filter_dropdown}>
-                    <button type='button' className={css.filter} onClick={handleFilterToggle}>Filter </button>
-                    <i className={`bi bi-funnel ${css.funnel}`}></i>
-                   {isOpen && (
-                     <div className={css.dropdown_menu}>
-                     <i className={`bi bi-x ${css.cancel}`} onClick={handleFilterClose}></i>
-                        <ul value={selectedOption} onChange={handleOptionChange}> 
-                             <li className={css.filter_items} onClick={() => handleFilterClick('All')}>All</li>
-                             <li className={css.filter_items} onClick={() => handleFilterClick('Approved')}>Approved</li>
-                             <li className={css.filter_items} onClick={() => handleFilterClick('Pending Review')}>Pending</li>
-                             <li className={css.filter_items} onClick={() => handleFilterClick('Declined')}>Declined</li>
-                        </ul>
-                     </div>
-                   )}
-                    </div>
-                </div>
-
-                <div className={css.component2}>
-                 <div className={css.print_btn}>
-                 <button type='button' className={css.print} onClick={handlePrintToggle}>Print</button>
-                    {isOpenPrint && (
-                     <div className={css.select_format}>
-                     <IoIosClose className={css.cancel2} onClick={handlePrintClose}/>
-                       <div className={css.format_text}>
-                        <p onClick={handleSelectFormatExportToggle}>Select Format <BiChevronDown /></p>
-                        </div>
-                       
-                        {selectFormatExport && (
-                        <div className={css.select_options}>
-                          <p className={css.options}>PDF</p>
-                          <p className={css.options}>Excel</p>
-                          <p className={css.options}>CSV</p>
-                        </div>
-                       )}
-                     </div>
-                   )}
-                </div>
-                  <div className={css.export_btn}>
-                  <button type='button' className={css.export} onClick={handleExportToggle}>Export Data</button>
-                    {isOpenExport && (
-                      <div className={css.select_format}>
-                        <IoIosClose className={css.cancel2} onClick={handleExportClose}/>
-                        <div className={css.format_text}>
-                        <p onClick={handleSelectFormatPrintToggle}>Select Format <BiChevronDown /> </p>
-                        </div>
-                            {selectFormatPrint && (
-                              <div className={css.select_options}>
-                                <p className={css.options}>PDF</p>
-                                <p className={css.options}>Excel</p>
-                                <CSVLink data={convertToCSV()} filename="client_data.csv">
-                                <p className={css.options}>CSV</p>
-                                </CSVLink>
-                              </div>
-                       )}
-                      </div>
-                   )}
-                  </div>
-                </div>
-        </div>
-        <div className={css.clientsblock}>
-        <div className={css.clientsdata}>
-        <input type="checkbox" name="checkall" id="check" onChange={handleAllCheckChange} className={css.check}/>
-          <h3>Application Number</h3>
-          <h3>Full Name</h3>
-          <h3>Loan Status</h3>
-          <h3>Date</h3>
-        </div>
+    <div>
+    <div className={css.clientNav}>
+        <Link to="/dashboard">Home</Link>
+        <BiChevronRight className={css.icon} />
+        <Link to="/Clients">Clients</Link>
       </div>
+    <main className={css.main_container}>
+      <div className={css.details_client_client}>
+        <div className={css.component1_client_block}>
+          <div className={css.component1_client}>
+            <div className={css.component101}>
+             <CiSearch className={css.searchicon}/>
+              <input
+                type="text"
+                placeholder="Search"
+                className={css.search}
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+            </div>
 
-       </div>
-       <section className={css.client_table}>
-        <div>
-          <div className={css.ClientInfo_Block_Container}>
-
-            {filteredClients.map((client) => {
-               if (
-                            searchQuery &&
-                            !(
-                              client.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                              client.applicationNumber.toLowerCase().includes(searchQuery.toLowerCase())
-                            )
-                  ) {
-                            return null;
-                    }
-
-              let statusStyle = {};
-              let statusColor = {};
-              if (client.LoanStatus === 'Approved') {
-                statusStyle.backgroundColor = '#00D43D';
-                statusColor.color = '#00D43D';
-              } else if (client.LoanStatus === 'Declined') {
-                statusStyle.backgroundColor = '#DE4573';
-                statusColor.color = '#DE4573';
-              } else {
-                statusStyle.backgroundColor = '#F6C750';
-                statusColor.color = '#F6C750';
-              }
-            
-              return (
-                <div key={client.id} className={css.clientinfo}>
-                  <input
-                    type="checkbox"
-                    name="check" 
-                    id="check" 
-                    className={css.check} 
-                    checked={client.checked}
-                    onChange={(e) => handleCheckboxChange(e, client.id)}
-                    />
-                     <Link to='/clientprofile/overview'>
-                  <div className={css.clientinfo2}>{client.applicationNumber}</div>
-                    
-                  </Link>
-                  <div>{client.fullName}</div>
-                  <div>
-                    <span className={css.statusDot} style={statusStyle}></span>
-                    <span style={statusColor}>{client.LoanStatus}</span>
-                  </div>
-                  <div>{client.Date}</div>
+            <div className={css.filter_dropdown}>
+              <div className={css.filterButtonArea}>
+              <button
+                className={css.filter}
+                onClick={handleFilterToggle}
+              >
+                Filter
+                <CiFilter className={css.funnel}/>
+              </button>
+              </div>
+              {isOpen && (
+                <div className={css.select_format}>
+                <IoIosClose
+                className={css.cancel2}
+                onClick={handleFilterClose}
+                />
+                  <ul value={selectedOption}
+                  className={css.select_options} onChange={handleOptionChange}>
+                    <li
+                    className={css.options}
+                      onClick={() => handleFilterClick("All")}
+                    >
+                      All
+                    </li>
+                    <li
+                    className={css.options}
+                      onClick={() => handleFilterClick("Approved")}
+                    >
+                      Approved
+                    </li>
+                    <li
+                    className={css.options}
+                      onClick={() => handleFilterClick("Pending Review")}
+                    >
+                      Pending
+                    </li>
+                    <li
+                    className={css.options}
+                      onClick={() => handleFilterClick("Declined")}
+                    >
+                      Declined
+                    </li>
+                  </ul>
                 </div>
-              );
-            })}
+              )}
+            </div>
+          </div>
+
+          <div className={css.component2}>
+            <div className={css.print_btn}>
+              <ReactToPrint
+                trigger={() => (
+                  <button
+                    type="button"
+                    className={css.print}
+                    // onClick={handlePrintToggle}
+                  >
+                    Print
+                  </button>
+                )}
+                // content={() => componentRef.current}
+                // documentTitle= " Client Data"
+                content={() => componentRef.current}
+                documentTitle={documentTitle}
+                pageStyle="@page { size: auto; margin: 10mm; }"
+              />
+            </div>
+            <div className={css.export_btn}>
+              <button
+                type="button"
+                className={css.export}
+                onClick={handleExportToggle}
+              >
+                Export Data
+              </button>
+              {isOpenExport && (
+                <div className={css.select_format}>
+                  <IoIosClose
+                    className={css.cancel2}
+                    onClick={handleExportClose}
+                  />
+                  <div className={css.format_text}>
+                    <p onClick={handleSelectFormatPrintToggle}>
+                      Select Format <BiChevronDown />{" "}
+                    </p>
+                  </div>
+                  {isOpenFilter && (
+                    <div className={css.select_options}>
+                      <p className={css.options} onClick={generatePDF}>PDF</p>
+                      <p className={css.options}>Excel</p>
+                      <CSVLink style={{color:"black"}} data={convertToCSV()} filename="client_data.csv">
+                        <p className={css.options}>CSV</p>
+                      </CSVLink>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </section>
+
+        <div className={css.clientsblock}  ref={conponentPDF}>
+          <div className={css.clientsdata} ref={componentRef}>
+            <input
+              type="checkbox"
+              name="checkall"
+              id="check"
+              onChange={handleAllCheckChange}
+              className={css.check}
+            />
+            <h3>Application Number</h3>
+            <h3>Full Name</h3>
+            <h3>Loan Status</h3>
+            <h3>Date</h3>
+          </div>
+
+          <section className={css.client_table} >
+            <div className={css.ClientInfo_Block_Container} ref={componentRef}>
+              {filteredClients.map((client) => {
+                if (
+                  searchQuery &&
+                  !(
+                    client.fullName
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase()) ||
+                    client.applicationNumber
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase())
+                  )
+                ) {
+                  return null;
+                }
+
+                let statusStyle = {};
+  
+                if (client.LoanStatus === "Approved") {
+                  statusStyle.backgroundColor = "#33DD64"
+     
+                } else if (client.LoanStatus === "Declined") {
+                  statusStyle.backgroundColor = "red"
+     
+               }else if (client.LoanStatus === "Due"){
+                 statusStyle.backgroundColor = "#F3B516"
+     
+               } else if (client.LoanStatus === "Closed"){
+               statusStyle.backgroundColor = "#6A8FE5"
+     
+                } else {
+                  statusStyle.backgroundColor = "Orange"
+                  
+                }
+
+                return (
+                  <div key={client.id} className={css.clientinfo__client}>
+                    {/* <div> */}
+                    <input
+                      type="checkbox"
+                      name="check"
+                      id="check"
+                      className={css.check}
+                      checked={client.checked}
+                      onChange={(e) => handleCheckboxChange(e, client.id)}
+                    />
+                    <Link to="/clientprofile/overview">
+                      <div className={css.clientinfo2}>
+                        {client.applicationNumber}
+                      </div>
+                    
+                    <div>{client.fullName}</div>
+                    
+                      
+                    <div className={css.actualStatus} style={statusStyle}>{client.LoanStatus}</div>
+                   
+                    <div>{client.Date}</div>
+                    </Link>
+                  </div>
+                );
+              })}
+              {/* </div> */}
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
-  )
-}
+    </div>
+  );
+};
 
 export default Client;
