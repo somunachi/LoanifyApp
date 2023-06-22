@@ -1,0 +1,136 @@
+.clientsblock{
+  margin-top: -10px;
+  z-index: 6;
+  margin-left: -1.7rem;
+  padding-top: 1rem;
+
+  background-color: white;
+  /* padding-right: 10px; */
+  /* background-color: red; */
+  width: 1043px;
+  /* display: flex;
+  flex-direction: column; */
+  
+}
+.clientsdata___block{
+  background-color: white;
+color: white;
+  /* margin-left: -1rem; */
+  /* margin-top: -1rem; */
+  position: fixed;
+  width: 1040px;
+
+}
+  .clientsdata{
+    
+      display: flex;
+      /* width: 1090px; */
+    width: 1041px;
+      /* background-color: blue; */
+      /* padding: 5px; */
+      border: 0.5px solid rgb(145, 134, 134);
+      align-items: center;
+      /* justify-content: center; */
+      color: black;
+    margin-left:.0rem;
+  background-color: white;
+  /* padding-top: 1rem; */
+  position: fixed;
+  height: 3rem;
+    
+
+
+  }  
+  .clientsdata h3{
+      font-size: 14px;
+      font-weight: 700;
+      color: black;
+      width: 156px;
+      margin-right: .6rem;
+
+  }
+  .checkboxIcon_1{
+    padding: 0px 4px;
+    margin: 0px 9px;
+  color: black;
+  margin-left: .4rem;
+  }
+  .checkbox_12{
+    padding: 0px 4px;
+    margin: 0px 11px;
+  margin-left: .8rem;
+  color: black;
+  background-color: black;
+  width: 19px;
+  }
+  .checkbox{
+      padding: 0px 4px;
+      margin: 0px 9px;
+    color: black;
+    margin-left: .4rem;
+    /* width: 10px; */
+
+  }
+  .checkbox2{
+    padding: 0px 4px;
+      margin: 0px 11px;
+    margin-left: .8rem;
+    color: black;
+    background-color: black;
+    width: 19px;
+  }
+
+
+
+
+
+  /* client info */
+
+
+  .clientinfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 5vh;
+    padding: 10px 0px;
+    margin-bottom: 5px;
+}
+.clientContainer{
+  /* top: 12rem; */
+  margin-top: 3.5rem;
+}
+.clientinfo div{
+    width: 1200vw;
+    width: 14%;
+    font-size: 14px;
+    color: #010e2a;
+    font-weight: 500;
+}
+  
+  .darkPinkText {
+    color: rgb(240, 9, 86); /* Set the desired text color for id=8 */
+  }
+  
+  .approvedBackground {
+    color: #F0F4FC;
+  }
+
+.input{
+    width: 30px;
+    margin-right: -10px;
+}
+.checkbox{
+    color: black;
+    /* background-color: black; */
+    width: 19px;
+    margin-left: -.4rem;
+}
+.checkboxIcon{
+    color: black;
+    margin-left: -.5rem;
+
+}
+.checkbox11{
+  width: 19px;
+  margin-left: .7rem;
+}
