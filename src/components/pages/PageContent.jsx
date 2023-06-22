@@ -16,7 +16,7 @@ import { Security } from './SettingsPage/Security/Security';
 import ParentChangePsw from './SettingsPage/PopUps/ParentChangePsw';
 import Report from './Report/Report';
 import Profile from './Profile/Profile';
-// import LoanTab from './Loans/LoanTab';
+import LoanTab from './Loans/LoanTab';
 
 
 function PageContent() {
@@ -39,7 +39,7 @@ function PageContent() {
           <Route exact path='/settings/security/change-password' element={<ParentChangePsw/>}/>
           <Route exact path='/reports' element={<Report/>}/>
           <Route exact path='/Profile' element={<Profile/>}/>
-        
+          <Route exact path='/loans' element={<LoanTab/>}/>
         </Routes>
       </div>
   );

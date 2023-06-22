@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from './components/Header/Navbar'
 import Side from "./components/SideMenu/Side";
 import PageContent from "./components/pages/PageContent";
@@ -21,6 +21,11 @@ function App() {
   const [selectedItem, setSelectedItem] = useState('Dashboard');
   
 
+
+  useEffect(()=>{
+    localStorage.removeItem('token')
+  }, [])
+  
   const handleLogin = (token) => {
     if (token.join('').length === 4) {
       setLoggedIn(true);
