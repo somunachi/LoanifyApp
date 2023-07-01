@@ -102,7 +102,9 @@ function DropNotify({onClose}) {
             <hr className={dropcss.hr}/>
 
                 <div className={dropcss.footer1}>
+                    <Link to='/settings/notification' onClick={handleMsgClose}>
                     <IoSettingsOutline className={dropcss.footerIcon}/>
+                    </Link>
                     <p>
                         <span>
                             <IoIosCheckmark className={dropcss.footerIcon}/>

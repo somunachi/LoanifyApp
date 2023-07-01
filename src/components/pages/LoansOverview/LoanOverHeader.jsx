@@ -17,18 +17,30 @@ export const LoanOverHeader = () => {
     console.log("decline")
     setShowPopUp(true)
     setLoanStatus("Decline");
+    setTimeout(() => {
+      setShowPopUp(false); 
+    }, 1000);
   } 
   const handleDeclineClose = () => {
     console.log("close")
     setShowPopUp(false)
+    
   }
 
   const handleApproveClick = () => {
     setShowApprove(true)
     setLoanStatus("Approved");
+    setTimeout(() => {
+      setShowApprove(false); 
+    }, 1000);
   }
   const handleApproveClose= () => {
-    setShowApprove(false)
+    // setShowApprove(false)
+    setTimeout(() => {
+      setShowApprove(false); 
+    }, 1000);
+
+    
   }
 
   return (

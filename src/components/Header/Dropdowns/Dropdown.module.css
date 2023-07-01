@@ -2,19 +2,19 @@
     position: absolute;
     top: 5rem;
     right: 5rem;
-    width: 152px;
+    width: 130px;
     padding: 15px;
     border-radius: 8px;
     background-color: white;
     border: 1px solid grey;
     z-index: 999;
-    height: 275px;
+    height: 160px;
 
 }
 
 .picon {
     position: absolute;
-    left: 7.9rem;
+    left: 6.3rem;
     width: 20px;
     margin-top: -7px;
     color: black;
@@ -38,7 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
+    
 }
 
 .pro_list ul {
@@ -47,7 +48,7 @@
     margin-left: -1rem;
     list-style: none;
     gap: 4px;
-    width: 40px;
+    width: 130px;
     margin-top: 2rem;
 }
 
@@ -55,19 +56,45 @@
     text-decoration: none;
     margin-left: -3rem;
     margin-bottom: 5px;
-    margin-left: 11px;
+    margin-left: 1.5px;
     font-size: 14px;
     color: black;
     font-weight: bold;
     padding: 5px 0;
-    width: 110px;
+    padding-left: 10px;
+    width: 125px;
+    display: flex;
+    align-items: center;
 
 }
 
 .pro_list a:hover {
     /* background: #04297F; */
     background: #F0F4FC;
-    width: 138px;
+    /* width: 138px; */
+    
+    border-radius: 12px;
+    color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.logout{
+    text-decoration: none;
+    margin-left: -3rem;
+    /* margin-bottom: 10px; */
+    margin-left: 1.5px;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    padding: 5px 0;
+    padding-left: 10px;
+    width: 125px;
+    display: flex;
+    align-items: center;
+}
+.logout:hover{
+    background: #F0F4FC;
+    /* width: 138px; */
     
     border-radius: 12px;
     color: black;

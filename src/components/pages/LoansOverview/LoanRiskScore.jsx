@@ -36,7 +36,9 @@ export const LoanRiskScore = () => {
             <div className={css.riskscore_down}>
                 <p>Decision Comments :</p>
                 <div className={css.riskscore_deci}>
-                    <p><span>1.</span> System recommends making a standard client check.</p>
+                <p><span>1.</span> Open prior loan from another company</p>
+                <p><span>2.</span> Insufficient Revenue</p>
+                    <p><span>3.</span> Insfficient Collateral</p>
                 </div>
             </div>
         </div>

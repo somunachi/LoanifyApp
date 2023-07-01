@@ -90,7 +90,7 @@ export const LoanOverview = () => {
             className={`${css.overview_tab_tab} ${activeTab === "newApp" ? css.active : ""}`}
             onClick={() => handleTabClick("newApp")}
           >
-           Loan Details
+           Loan Application
           </div>
           <div
             className={`${css.overview_tab_tab} ${activeTab === "pending" ? css.active : ""}`}

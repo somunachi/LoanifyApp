@@ -12,6 +12,11 @@ function DropdownProfile({ onClose, handleLogout }) {
     onClose();
   };
 
+  const handleItemClick = () => {
+    setVisible(false);
+    onClose();
+  };
+
   if (!visible) {
     return null;
   }
@@ -23,22 +28,20 @@ function DropdownProfile({ onClose, handleLogout }) {
       </div>
       <div className={dropcss.pro_list}>
         <ul>
-          <Link to="/settings/profile">
-            <li>Online</li>
-          </Link>
-          <Link to="/settings/profile">
-            <li>On Break</li>
-          </Link>
-          <Link to="/settings/profile">
-            <li>Offline</li>
-          </Link>
           <Link to="/profile">
-            <li>View Profile</li>
+            <li onClick={handleItemClick}>View Profile</li>
           </Link>
           <Link to="/settings/profile">
-            <li>Profile Settings</li>
+            <li onClick={handleItemClick}>Profile Settings</li>
           </Link>
-          <li style={{ cursor: 'pointer', color: 'red' }} onClick={handleLogout}>
+          <li
+            style={{ cursor: 'pointer', color: 'red' }}
+            onClick={() => {
+              handleLogout();
+              handleItemClick();
+            }}
+            className={dropcss.logout}
+          >
             Log Out
           </li>
         </ul>

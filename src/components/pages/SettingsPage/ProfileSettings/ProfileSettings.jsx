@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import style from "./profilesettings.module.css";
 import { Link, Outlet } from "react-router-dom";
 import profileData from "./ProfileData";
-import ParentSwitch from "../Switch/ParentSwitch";
 import { BiChevronRight, BiCamera } from "react-icons/bi";
 import empty from '../../../../assets/Default_pfp.svg.png';
 import { AvatarInfo } from "../../../../Context";
+import ProfileComfirm from "./ProfileComfirm";
+import Switch from "../Switch/Switch";
 
 export const ProfileSettings = () => {
   const {photo, setPhoto} = useContext(AvatarInfo)
@@ -15,20 +16,24 @@ export const ProfileSettings = () => {
   const [phoneNumber, setPhoneNumber] = useState("08022222222");
   const [address, setAddress] = useState("No 10, Superman lane, Infinity street, Oz");
   const {role, setRole} = useContext(AvatarInfo);
+  const {status, setStatus} = useContext(AvatarInfo);
   const [isEditing, setIsEditing] = useState(false);
-  // const [photo, setPhoto] = useState('');
+  const [profileSaved, setProfileSaved] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeTab, setActiveTab] = useState("Profile");
   const fileInputRef = useRef(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
+  const handleStatusToggle = (toggleValue) => {
+    setStatus((prevStatus) => (prevStatus === "Active" ? "Inactive" : "Active"));
+  };
   const handleGalleryClick = () => {
     fileInputRef.current.click(); 
   };
 
   const handleGalleryDropdown = () => {
-    setShowDropdown(!showDropdown);
+    setShowDropdown(true);
   };
 
   const handleImageUpload = (event) => {
@@ -42,6 +47,7 @@ export const ProfileSettings = () => {
     if (file) {
       reader.readAsDataURL(file);
     }
+    setShowDropdown(false);
   };
 
   const handlePhotoUpload = (e) => {
@@ -55,6 +61,9 @@ export const ProfileSettings = () => {
 
   const handleCameraDropdown = () => {
     setShowDropdown((prevShowDropdown) => !prevShowDropdown);
+
+    setShowDropdown(true);
+
   };
 
   const handleCameraOption = () => {
@@ -68,6 +77,7 @@ export const ProfileSettings = () => {
           console.error("Error accessing camera: ", error);
         });
     }
+    setShowDropdown(false);
   };
 
   const handleCapture = () => {
@@ -131,7 +141,12 @@ export const ProfileSettings = () => {
     };
 
     localStorage.setItem("profileData", JSON.stringify(profileData));
-console.log("saved")
+    setProfileSaved(true)
+    console.log("saved")
+    setTimeout(() => {
+      setProfileSaved(false); 
+    }, 1000);
+
     // updateProfilePhoto(photo);
   };
 
@@ -269,7 +284,8 @@ console.log("saved")
                 </p>
                 <p>
                   Status:
-                  <span className={style.status}>{status}</span>
+                  {/* <span className={style.status}>{status}</span> */}
+                  <span className={status === "Active" ? style.activeStatus : style.inactiveStatus}>{status}</span>
                 </p>
               </div>
             </div>
@@ -317,7 +333,7 @@ console.log("saved")
             )}
           </div>
 
-          <ParentSwitch className={style.user_parent_switch} />
+          <Switch className={style.user_parent_switch} onToggle={handleStatusToggle}/>
         </div>
 
         <div>
@@ -360,7 +376,13 @@ console.log("saved")
       <div className={style.save_profile_btn_container} >
         <button className={style.save_profile_btn} onClick={handleSave}>Save</button>
       </div>
+      {profileSaved && (
+        <div className={style.profile_saved_container}>
+          <div className={style.profile_saved}><ProfileComfirm /></div>
+        </div>
+      )}
     </div>
+    
     </div>
   );
 };

@@ -7,22 +7,12 @@ import { Link } from "react-router-dom";
 import { AvatarInfo } from "../../../../Context";
 
 export const User = () => {
-  const {photo} = useContext(AvatarInfo)
+  const {photo, setPhoto} = useContext(AvatarInfo)
   const {firstName, setFirstName} = useContext(AvatarInfo)
   const {lastName, setLastName} = useContext(AvatarInfo);
   const {role, setRole} = useContext(AvatarInfo);
+  const {status, setStatus} = useContext(AvatarInfo);
 
-
-  
-  // const [photo, setPhoto] = useState("");
-
-  // const user = useSelector(selectUser);
-
-  // const user = {
-    // firstName: 'John',
-    // lastName: 'Doe',
-    // photo: "url",
-  // };
 
   return (
     
@@ -39,23 +29,6 @@ export const User = () => {
                       sx={{ width: 140, height: 140 }}
                     />
                   )}
-          {/* <img src={photo || img2} alt="" sx={{ width: 140, height: 140 }} className={styles.emptyPhoto}/> */}
-
-            {/* {photo} */}
-            {/* {!photo ? (
-              <img
-                src={empty}
-                alt="default photo"
-                className={styles.emptyPhoto}
-              />
-            ) : ( */}
-              {/* <img
-                className={styles.Useravatar}
-                alt="user profile"
-                src={photo}
-                sx={{ width: 140, height: 140 }} */}
-              {/* /> */}
-            {/* )} */}
           </div>
 
           
@@ -66,9 +39,11 @@ export const User = () => {
                 Role:
                 <span className={styles.role}>{role}</span>
               </p>
-              <p>
+              <p className={styles.status_status}>
                 Status:
-                <span className={styles.status}></span>
+                {/* <span className={styles.status}>{status}</span> */}
+                <span className={status === "Active" ? styles.activeStatus : styles.inactiveStatus}>{status}</span>
+
               </p>
             </div>
           

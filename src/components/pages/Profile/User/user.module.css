@@ -15,8 +15,9 @@ border: 0.5px solid #6A8FE5;
 border-radius: 5px;
 }
 .emptyPhoto{
-    width: 140px;
-    height: 140px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
     font-weight: lighter;
 }
 
@@ -53,7 +54,6 @@ border-radius: 5px;
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
-    /* margin-top: -px; */
     margin-bottom: 10px;
 }
 .about_user span{
@@ -62,8 +62,13 @@ border-radius: 5px;
 .role{
     margin-left: 15px;
 }
-
-.status{
-    margin-left: 5px;
+.activeStatus{
+    margin-left: 15px;
+    font-weight: 600;
     color: #297F04;
+}
+.inactiveStatus{
+    margin-left: 15px;
+    font-weight: 600;
+    color: #D30744;
 }
