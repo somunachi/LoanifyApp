@@ -1,10 +1,10 @@
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import dropcss from './Dropdown.module.css';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-function DropdownProfile({ onClose }) {
+function DropdownProfile({ onClose, handleLogout }) {
   const [visible, setVisible] = useState(true);
 
   const handleFixClick = () => {
@@ -38,9 +38,9 @@ function DropdownProfile({ onClose }) {
           <Link to="/settings/profile">
             <li>Profile Settings</li>
           </Link>
-          <Link to="/login" style={{color: 'red'}}>
-            <li>Log Out</li>
-          </Link>
+          <li style={{ cursor: 'pointer', color: 'red' }} onClick={handleLogout}>
+            Log Out
+          </li>
         </ul>
       </div>
     </div>
@@ -48,8 +48,8 @@ function DropdownProfile({ onClose }) {
 }
 
 DropdownProfile.propTypes = {
-    onClose: PropTypes.func.isRequired,
-  };
+  onClose: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+};
 
-  
 export default DropdownProfile;

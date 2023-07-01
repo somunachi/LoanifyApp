@@ -1,53 +1,64 @@
-// import React, {useEffect, useState} from 'react'
 import { BiChevronRight } from "react-icons/bi";
 import style from "./general.module.css";
 import { Link } from "react-router-dom";
+import Navbar from "../../../Header/Navbar";
+import Side from "../../../SideMenu/Side";
+import "../../../../App.css";
+import { useState } from "react";
 
 export const General = () => {
-  // const getLanguage = async () => {
-  //     try {
-  //         const response = await axios.get(`'https://google-translate1.p.rapidapi.com/language/translate/v2/languages'`);
-  //         setData(response.data);
-  //         setError(null);
-  //     } catch (err) {
-  //         setError(err.message);
-  //         setData(null);
-  //     } finally {
-  //         setLoading(false);
-  //     }
-  // };
+  const [activeTab, setActiveTab] = useState("General");
 
-  // getLanguage();
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
     <div>
-      <div className={style.generalNav}>
+  <div className={style.generalNav}>
         <Link to="/dashboard">Home</Link>
         <BiChevronRight className={style.icon} />
         <Link to="/settings">Settings</Link>
         <BiChevronRight className={style.icon} />
         <Link to="#">General</Link>
       </div>
-      <div className={style.settings_btn_container}>
-        <div className={style.settings_btn}>
-          <Link to="/settings" className={style.activeSetting}>
-            General
+  <div className={style.settings_tab_container}>
+      <div className={style.settings_tab_header}>
+        <div className={style.settings_tab_tabs}>
+        <div className={`${style.settings_tab_tab} ${activeTab === "General" ? style.active : ""}`} 
+          onClick={() => handleTabClick("General")}>
+          <Link to='/settings'>
+          General
           </Link>
-          <Link to="/settings/profile" style={{ color: "#717070" }}>
-            Profile
+          </div>
+          <div className={`${style.settings_tab_tab} ${activeTab === "Profile" ? style.active : ""}`} 
+          onClick={() => handleTabClick("Profile")}>
+          <Link to='/settings/profile'>
+          Profile
           </Link>
-          <Link to="/settings/userpermission" style={{ color: "#717070" }}>
-            User Permissions
+          </div>
+          <div className={`${style.settings_tab_tab} ${activeTab === "User Permissions" ? style.active : ""}`} 
+          onClick={() => handleTabClick("User Permissions")}>
+          <Link to='/settings/userpermission'>
+          User Permissions
           </Link>
-          <Link to="/settings/notification" style={{ color: "#717070" }}>
-            Notifications
+          </div>
+          <div className={`${style.settings_tab_tab} ${activeTab === "Notifications" ? style.active : ""}`} 
+          onClick={() => handleTabClick("Notifications")}>
+          <Link to='/settings/notification'>
+          Notifications
           </Link>
-          <Link to="/settings/security" style={{ color: "#717070" }}>
-            Security
+          </div>
+          <div className={`${style.settings_tab_tab} ${activeTab === "Security" ? style.active : ""}`} 
+          onClick={() => handleTabClick("Security")}>
+          <Link to='/settings/security'>
+          Security
           </Link>
+          </div>
         </div>
       </div>
-
+    </div>
+    <div>
       <div className={style.general_set_Block_Block1}>
         <div className={style.general_set_Block}>
           <p>Updates</p>
@@ -57,6 +68,7 @@ export const General = () => {
           <p>Legal & Regulatory</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

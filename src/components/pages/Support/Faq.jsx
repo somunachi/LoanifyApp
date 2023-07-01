@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import sup from './support.module.css';
 import { BiChevronDown, BiChevronRight } from 'react-icons/bi';
+import Navbar from "../../Header/Navbar";
+import Side from "../../SideMenu/Side";
+import "../../../App.css";
 
 import { Link } from 'react-router-dom';
 

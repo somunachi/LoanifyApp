@@ -28,11 +28,6 @@ function Report() {
     { value: "12", label: "December" },
   ];
 
-  // const years = [];
-  // const currentYear = new Date().getFullYear();
-  // for (let i = currentYear; i >= currentYear - 100; i--) {
-  //   years.push(i);
-  // }
 
   return (
     <div>

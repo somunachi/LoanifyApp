@@ -12,10 +12,12 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { app } from '../../../firebase';
 import Message from './Message';
 import msg from './message.module.css';
-// import { BsEmojiSmile } from 'react-icons/bs';
+import { BsEmojiSmile } from 'react-icons/bs';
 import { BiMicrophone } from 'react-icons/bi';
 import { AiOutlineSend, AiOutlineFileAdd } from 'react-icons/ai';
-// import Picker from 'emoji-picker-react';
+import Picker from 'emoji-picker-react';
+import { BiChevronRight } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 function UserMsg() {
   const [message, setMessage] = useState('');
@@ -25,47 +27,65 @@ function UserMsg() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordedAudio, setRecordedAudio] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [photo, setPhoto] = useState('');
+
   const mediaRecorder = useRef(null);
   const chunks = useRef([]);
+  const fileInputRef = useRef(null);
 
+
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setPhoto(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
   const db = getFirestore(app);
   const storage = getStorage(app);
   const divForScroll = useRef(null);
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  // const submitHandler = async (e) => {
+  //   e.preventDefault();
   
-    try {
-      if (message === '' && !recordedAudio && !selectedFile) {
-        return; // Don't submit empty message, audio, or file
-      }
+  //   try {
+  //     if (message === '' && !recordedAudio && !selectedFile) {
+  //       return; 
+        // Don't submit empty message, audio, or file
+      // }
   
-      let audioURL = null;
-      if (recordedAudio) {
-        audioURL = await uploadRecordedAudio();
-      }
+      // let audioURL = null;
+      // if (recordedAudio) {
+      //   audioURL = await uploadRecordedAudio();
+      // }
   
-      let fileURL = null;
-      if (selectedFile) {
-        fileURL = await uploadSelectedFile();
-      }
+      // let fileURL = null;
+      // if (selectedFile) {
+      //   fileURL = await uploadSelectedFile();
+      // }
   
-      setMessage('');
-      setRecordedAudio(null);
-      setSelectedFile(null);
+      // setMessage('');
+      // setRecordedAudio(null);
+      // setSelectedFile(null);
   
-      await addDoc(collection(db, 'Messages'), {
-        text: message,
-        audioURL,
-        fileURL,
-        createdAt: serverTimestamp(),
-      });
+      // await addDoc(collection(db, 'Messages'), {
+      //   text: message,
+      //   audioURL,
+      //   fileURL,
+      //   createdAt: serverTimestamp(),
+      // });
   
-      setIsTyping(false);
-      divForScroll.current.scrollIntoView({ behavior: 'smooth' });
-    } catch (error) {
-      console.error('Error adding message: ', error);
-    }
-  };
+  //     setIsTyping(false);
+  //     divForScroll.current.scrollIntoView({ behavior: 'smooth' });
+  //   } catch (error) {
+  //     console.error('Error adding message: ', error);
+  //   }
+  // };
   
 
   const uploadRecordedAudio = async () => {
@@ -136,6 +156,7 @@ function UserMsg() {
     const emoji = emojiObject.emoji;
     setMessage((prevMessage) => prevMessage + emoji);
     setIsTyping(true);
+    
   };
 
   const startRecording = () => {
@@ -175,7 +196,15 @@ function UserMsg() {
   };
 
   return (
-    <div>
+
+  <div>
+      <div className={msg.messageNav}>
+          <Link to='/dashboard'>Home</Link>
+          <BiChevronRight className={msg.icon}/>
+          <Link to='/messages'>All messages</Link>
+          <BiChevronRight className={msg.icon}/>
+          <Link to='#'>Message</Link>
+        </div>
       <div className={msg.message__container}>
         <div className={msg.message__container1}>
           {messages.map((item) => (
@@ -207,19 +236,26 @@ function UserMsg() {
             ) : (
               <AiOutlineSend
                 onClick={(e) => submitHandler(e)}
-                className={msg.user_Msg_input_icon}
+                className={`${msg.user_Msg_input_icon} ${msg.user_Msg_input_icon1}`}
               />
             )}
             <div className={msg.user_Msg_input_icons}>
-              {/* <BsEmojiSmile onClick={() => setShowPicker((val) => !val)} />
+              <BsEmojiSmile onClick={() => setShowPicker((val) => !val)} />
               {showPicker && (
                 <div className={msg.emojiPickerContainer}>
                   <Picker onEmojiClick={onEmojiClick} />
                 </div>
-              )} */}
+              )}
               <label htmlFor="fileInput">
                 <AiOutlineFileAdd />
                 <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleImageUpload}
+        />
+                {/* <input
                   type="file"
                   id="fileInput"
                   style={{ display: 'none' }}
@@ -229,7 +265,7 @@ function UserMsg() {
                       setSelectedFile(file);
                     }
                   }}
-                />
+                /> */}
               </label>
             </div>
           </form>

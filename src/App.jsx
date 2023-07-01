@@ -5,29 +5,29 @@ import Side from "./components/SideMenu/Side";
 import PageContent from "./components/pages/PageContent";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-import Landing from './components/LandingPage/Landing'
-import Login from './components/Login/Login'
-import Signup from './components/Signup/Signup'
-import Confirmation from './components/Confirmation/Confirmation'
-import Token from './components/Token/Token'
-import ForgotPwd from './components/ForgotPwd/ForgotPwd'
-import {ResetPassword} from './components/ResetPassword/ResetPassword'
-import { ResetSuccessPage } from "./components/ResetPassword/ResetSuccessPage";
 import 'react-toastify/dist/ReactToastify.css';
+import { Context } from "./Context";
 
 function App() {
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedItem, setSelectedItem] = useState('Dashboard');
-  
+  const [photo, setPhoto] = useState(null);
 
+  const handlePhotoChange = (newPhoto) => {
+    setPhoto(newPhoto);
+  };
 
-  useEffect(()=>{
-    localStorage.removeItem('token')
-  }, [])
-  
+  useEffect(() => {
+    // Check if the user is already logged in
+    const token = localStorage.getItem('token');
+    if (token) {
+      setLoggedIn(true);
+    }
+  }, []);
+
   const handleLogin = (token) => {
     if (token.join('').length === 4) {
+      localStorage.setItem('token', token);
       setLoggedIn(true);
       toast.success('Login successful', {
         position: 'top-center',
@@ -38,12 +38,16 @@ function App() {
         draggable: true,
         theme: 'colored',
       });
-  
-      // Navigate to the dashboard
-      navigate('/dashboard');
     }
   };
 
+  const handleLogout = () => {
+    console.log("logout")
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+    // Redirect the user to the login page
+    window.location.href = '/login';
+  };
 
   const handleItemSelected = (item) => {
     setSelectedItem(item);
@@ -51,35 +55,20 @@ function App() {
 
   return (
     <Router>
-     <ToastContainer />
+      <Context>
+      <ToastContainer />
 
-
-    {loggedIn ? (
-          
-      <div className="App">
-      <Navbar/>
-      <div className="sideandpage">
-        <Side  />
-        <PageContent />
-      </div>
-    </div>
-
-    ) : (
-      <Routes>
-            <Route path='/' element={<Landing />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/confirmation' element={<Confirmation />} />
-            <Route path='/token' element={<Token handleLogin={handleLogin} />} />
-            <Route path='/forgotpwd' element={<ForgotPwd />} />
-            <Route path='/resetpassword' element={<ResetPassword/>} />
-            <Route path='/resetsuccesspage' element={<ResetSuccessPage/>} />
-          </Routes>
-
-        )}
-     
-      
+        <div className="App">
+          <Navbar handleLogout={handleLogout} selectedItem={selectedItem} photo={photo}/>
+          <div className="sideandpage">
+            <Side />
+            <PageContent handlePhotoChange={handlePhotoChange}/>
+          </div>
+        </div>
+        </Context>
     </Router>
+        // <Route path='/change-password' element={< ParentChangePsw/>}/>
+
   );
 }
 

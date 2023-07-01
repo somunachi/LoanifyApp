@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import navstyle from "./Navbar.module.css";
 import img1 from "../../assets/Group 7753.svg";
 import img2 from "../../assets/active borrower avatar.png";
@@ -8,17 +8,21 @@ import DropdownProfile from '../Header/Dropdowns/DropdownProfile'
 import DropNotify from '../Header/Dropdowns/DropNotify'
 import Dropmsg from '../Header/Dropdowns/Dropmsg'
 import PropTypes from 'prop-types';
+import { AvatarInfo } from "../../Context";
 
-function Navbar({selectedItem}) {
+function Navbar({selectedItem, handleLogout}) {
     const [open, setOpen] = useState(false);
     const [showNotify, setShowNotify] = useState(false);
     const [showMsg, setShowMsg] = useState(false);
+    const {photo, setPhoto} = useContext(AvatarInfo)
 
     const handleProfileClick = (e) => {
         e.preventDefault();
         setOpen(!open);
         setShowNotify(false);
         setShowMsg(false);
+        // updateDashboardPhoto(photo);
+
     };
 
     const handleNotifyClick = (e) => {
@@ -63,16 +67,14 @@ function Navbar({selectedItem}) {
                         onClick={handleNotifyClick}>
                         <IoIosNotificationsOutline className={navstyle.nav_icon}/>
                     </a>
-                    <a href="" className={navstyle.profile_pic}
-                        onClick={handleProfileClick}>
-                        <img src={img2}
-                            alt=""/>
-                    </a>
+                    <a href="" className={navstyle.profile_pic} onClick={handleProfileClick}>
+            <img src={photo || img2} alt="" />
+          </a>
                 </div>
             </div>
 
             {
-            open && <DropdownProfile onClose={handleDropdownClose}/>
+            open && <DropdownProfile onClose={handleDropdownClose} handleLogout={handleLogout} />
         }
 
             {
@@ -93,5 +95,3 @@ Navbar.propTypes = {
 };
 
 export default Navbar;
-
-// <NavOverview selectedItem={selectedItem}/>

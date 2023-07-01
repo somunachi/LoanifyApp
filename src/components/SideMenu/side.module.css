@@ -1,56 +1,57 @@
 .side{
-    width: 228px;
-    height: 870px;
-    position: fixed;
-    background-color:#04297F;
-    color: #fff;
-  }
+  width: 228px;
+  height: 870px;
+  position: fixed;
+  background-color:#04297F;
+  color: #fff;
+}
 
-  .sidebarList ul{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    height: 870px;
-    text-decoration: none;
-    gap: 5px;
-  }
-  .sidebarList li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-  } 
-  .sidebarList li:hover{
-    background-color: rgb(216, 220, 223);
-    color: #04297F;
-  }
-  .sidebarList li a{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-decoration: none;
-    width: 228px;
-    text-decoration: none;
-    height: 40px;
-    gap: 10px;
-    color: white;
-    align-content: center;
-    padding-left: 45px;
+.sidebarList ul{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 870px;
+  text-decoration: none;
+  gap: 5px;
+}
+.sidebarList li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+} 
+.sidebarList li:hover{
+  background-color: rgb(169, 189, 209);
+  color: #04297F;
+}
+.sidebarList li a{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  width: 228px;
+  text-decoration: none;
+  height: 40px;
+  gap: 10px;
+  color: white;
+  align-content: center;
+  padding-left: 45px;
 
 }
 .sidebarList li a:hover{
-    color: #04297F;
+  color: #04297F;
 }
-.icon{
-    font-size: 20px;
+.sideicon{
+  font-size: 20px;
 }
 
 .sidebarList li:nth-child(9){
-    margin-top: 60px;
+  margin-top: 60px;
 }
 .sidebarList li a.active {
-    background-color: rgb(216, 220, 223);;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
-    color: #04297F;
+background-color: #F0F4FC;
+  /* background-color: rgb(216, 220, 223); */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
+  color: #04297F;
 }

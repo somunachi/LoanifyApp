@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import style from "./Tab.module.css";
-// import AppClients from './NewApplication/AppClients';
 import {Pending} from "./Pending/Pending";
 import {Active} from "./Active/Active";
 import {DueLoans} from "./DueLoans/DueLoans";
@@ -30,8 +29,13 @@ const LoanTab = () => {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [filterStatus, setFilterStatus] = useState('All');
   const [selectedOption, setSelectedOption] = useState("");
+  const applicationNumber = "Application Number";
+  const fullName = "Full Name";
+  const loanStatus = "Loan Status";
+  const date = "Date";
 
-
+  const documentTitle = `${applicationNumber} ${fullName} ${loanStatus} ${date}`;
+  
   const componentRef = useRef();
   const conponentPDF = useRef();
 
@@ -114,7 +118,6 @@ const LoanTab = () => {
 
   return (
     <div>
-
     <div className={style.loantabNav}>
     <Link to="/dashboard">Home</Link>
     <BiChevronRight className={style.icon} />
@@ -131,14 +134,14 @@ const LoanTab = () => {
         <div className={style.component1_client}>
                    <div className={style.component101}>
                    <BiSearch className={style.searchicon}/>
-                    <input type="text" placeholder='Muhammadu Buhari' className={style.search} value={searchQuery} onChange={handleSearch} />
+                    <input type="text" placeholder='Search' className={style.search} value={searchQuery} onChange={handleSearch} />
                    </div>
                     
 
                     {/* filter button */}
 
                     <div className={style.filter_dropdown}>
-                    <button type='button' className={style.filter} onClick={handleFilterToggle}>Filter 
+                    <button type='button' className={style.filter} onClick={handleFilterToggle}>{filterStatus === "All" ? "Filter" : filterStatus} 
                     <CiFilter className={style.funnel}/>
 
                     </button>
@@ -166,8 +169,18 @@ const LoanTab = () => {
 
                 <div className={style.component2}>
                  <div className={style.print_btn}>
-                 <button type='button' className={style.print} >Print</button>
-
+                 <ReactToPrint
+                      trigger={() => (
+                        <button
+                        type='button' className={style.print}
+                        >
+                          Print
+                        </button>
+                      )}
+                      content={() => componentRef.current}
+                      documentTitle={documentTitle}
+                      pageStyle="@page { size: auto; margin: 10mm; }"
+                    />
                 </div>
                   <div className={style.export_btn}>
                   <button type='button' className={style.export} onClick={handleExportToggle}>Export Data</button>

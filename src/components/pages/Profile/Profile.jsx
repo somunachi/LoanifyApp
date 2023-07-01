@@ -1,13 +1,16 @@
-// Profile.jsx
 import { useState } from "react";
 import { User } from "./User/User";
-import { AllClients } from "./Allclients/AllClients";
+// import { AllClients } from "./Allclients/AllClients";
 import { Percentage } from "./Percentage/Percentage";
 import { Info } from "./Info/Info";
 import css from "./profilepage.module.css";
 import data from "./data/data";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Navbar from "../../Header/Navbar";
+import Side from "../../SideMenu/Side";
+import "../../../App.css";
+
 
 function Profile() {
   const [selectAll, setSelectAll] = useState(false);
@@ -32,6 +35,7 @@ function Profile() {
   };
 
   return (
+
     <div className={css.ProfilePageBlock}>
       <div className={css.profileNav}>
         <Link to="/dashboard">Home</Link>
@@ -45,11 +49,6 @@ function Profile() {
       <div className={css.containerNotfix}>
         <Percentage />
       </div>
-
-      <AllClients
-        selectAll={selectAll}
-        onAllCheckChange={handleAllCheckChange}
-      />
 
       <div className={css.info}>
         <Info

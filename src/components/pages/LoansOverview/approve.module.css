@@ -1,0 +1,37 @@
+.approveContainer{
+    background-color: #FFFFFE;
+    border: 1.5px solid rgb(3, 110, 3);
+    position: absolute;
+    width: 45rem;
+    height: 25rem;
+    display: flex;
+    margin: 0 auto;
+    bottom: 5rem;
+    right: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+
+}
+.approveclosePic{
+    cursor: pointer;
+}
+.approveconfirmation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.approveconfirmation h1{
+    margin-top: rem;
+    margin-bottom: .5rem;
+    color: rgb(3, 110, 3);
+    font-weight: 700;
+    font-size: 45px;
+
+    
+}
+.approveconfirmation p{
+    color: #717070;
+    font-weight: 600;
+}

@@ -84,7 +84,7 @@ border-radius: 5px;
 }
 .toll__text_area{
   position: relative;
-  width: 1040px;
+  width: 1038px;
 }
 textarea {
   width: 1000px;
@@ -103,6 +103,7 @@ outline: none;
 border: none;
 border-radius: 5px;
   align-self: last baseline;
+  cursor: pointer;
 }
 .support__comfirm{
   margin: 20rem;

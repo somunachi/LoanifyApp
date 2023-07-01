@@ -35,7 +35,7 @@
 .userList_text1{
     display: flex;
     justify-content: space-between;
-    width: 900px;
+    width: 955px;
     align-items: center;
 }
 .userList img{
@@ -80,23 +80,46 @@ a{
 .flexEnd {
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
+    background-color: pink;
+    /* max-width: 100px; */
   }
+  
   .flexEnd .avatar {
-    margin-right: 0;
-    margin-left: 10px;
+    margin-left: 10px; 
+    order: 1; 
   }
+  
+  .flexEnd .text_messages {
+    order: 0;
+    max-width: 50%;
+    height: 100%;
+  }
+  
   .flexStart {
     display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
+    /* background-color: purple; */
+    /* margin-top: 10px;  */
   }
+  
   .flexStart .avatar {
-    margin-left: 0;
     margin-right: 10px;
+    order: 0;
+  }
+  
+  .flexStart .text_messages {
+    order: 1;
+    max-width: 50%;
+
   }
 .message01{
-    max-width: 550px;
+    max-width: 1040px;
     display: flex;
     /* background-color: green; */
+    overflow-x: hidden;
+    width: 1040px;
     align-items: center;
 }
 .text_messages_container{
@@ -106,6 +129,7 @@ a{
     overflow-wrap: break-word;
     word-break: break-all;
     margin-left: 1rem;
+    height: 100%;
     margin-top: 5px;
 }
 .text_messages{
@@ -121,43 +145,50 @@ a{
 .user_Msg {
     position: fixed;
     margin-top: 1rem;
+    /* background-color: red; */
+    height: 100%;
 }
 .message__container1{
-    height: 500px;
+    height: 470px;
     overflow-y: scroll;
     width: 1040px;
-    /* background-color: red; */
-
+    margin-top: 3rem;
 }
 .user_Msg{
     width: 1040px;
     height: 50px;
     display: flex;
-    justify-content: space-between;
-    border: 1px solid grey;
-    border-radius: 5px;
     align-items: center;
+    justify-content: space-between;
+    border: 1px solid #6a8fe5;
+    border-radius: 5px;
     padding: 10px;
 }
 .user_Msg_input{
     width: 900px;
     border: none;
     outline: none;
-    height: 3rem;
+    /* height: 3rem; */
     font-size: 18px;
+    /* background-color: green; */
+    padding: 10px;
+    /* height: 100%; */
+    
 }
 .user_Msg_input_icons{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    line-height: 2px;
     width: 65px;
     font-size: 25px;
 }
 .user_Msg_input_icon{
-    font-size: 25px;
+    font-size: 28px;
 }
 
-/* .emojiPickerContainer{
+.emojiPickerContainer{
     position: absolute;
     top: -26rem;
     left: 20rem;
-} */
+}
