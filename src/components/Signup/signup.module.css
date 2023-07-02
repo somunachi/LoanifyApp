@@ -1,0 +1,312 @@
+.signup_container{
+  /* display: flex; */
+  /* align-items: center; */
+  /* width: 100%; */
+  /* height: max-content; */
+  background-color: rgba(240, 244, 252, 0.8);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  /* justify-content: space-between; */
+}
+.signup_body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* background-color: red; */
+    align-items: center;
+    /* justify-content: space-between; */
+    /* gap: 6rem; */
+    /* justify-content: center; */
+    margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.section{
+ display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica";
+  width: calc(100% - 498px);
+  position: relative;
+  height: 100%;
+  
+}
+.logo{
+    left: 0;
+    /* margin-right: 10rem; */
+  margin-left: 4rem;
+  width: 150px;
+    margin-top: -35.5rem;
+    position: absolute;
+}
+.formContainer{
+    /* margin-left: -5.5rem; */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    justify-content: center;
+    margin-top: 7rem;
+    width: 40rem;
+    /* background-color: red; */
+    height: 100%;
+}
+.signupheading{
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: 700;
+    height: 24px;
+    margin-bottom: 1rem;
+}
+
+.sideimg{
+    height: 750px;
+  width: 498px;
+}
+
+.inputFieldBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  background: transparent;
+  margin-bottom: 1rem;
+    /* padding-left: 5rem; */
+}
+
+.signupPasswordBlock__icon{
+    position: absolute;
+    right: 9rem;
+    bottom: 9.3rem;  
+}
+
+
+.eye_icon{
+position: absolute;
+left: 45rem;
+margin-top: 2.1rem;
+}
+
+.signup__input{
+    width: 100%;
+    padding: .5rem;
+    outline: none;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+.signup__input:focus{
+    border: 1px solid #6a8fe5;
+}
+.signup__input::placeholder{
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.error{
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+    /* max-width: 300px; */
+    margin-bottom: .7rem;
+    margin-top: -.8rem;
+    position: absolute;
+}
+
+/* input:nth-child(6)::placeholder{
+    margin-top: 5px;
+    background-color: red;
+} */
+
+
+/* .signupheading{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    margin-bottom: -1px;
+    height: 1px;
+} */
+/* .inputField{
+
+} */
+
+/* .formContainer{
+    margin-right: 15rem;
+    height: 100px;
+
+} */
+.submit{
+    /* margin-top: 20px; */
+    background-color: rgb(2, 2, 42);
+    border-radius: 8px;
+    width: 424px;
+    height: 50px;
+    color: white;
+    margin-top: .5rem;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    /* line-height: 24px; */
+    /* letter-spacing: 0px; */
+    border: none;
+    text-align: center;
+    
+
+}
+
+
+/* .show{
+    position: absolute;
+    z-index: 2;
+    margin-left: -5rem;
+    margin-top: 0.7rem;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    background: transparent;
+    color: #000000;
+}
+
+.logintext{
+    color: #717070;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+
+} */
+
+.loginlink{
+    color: #0744D3;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration: none;
+}
+.login_signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* margin-bottom: -1rem; */
+    margin-top: .5rem;
+    /* background-color: purple; */
+}
+/* .logintext{
+    font-size: 14px;
+    color: grey;
+} */
+
+/* .logo{
+    height: 50px;
+    width: 100px;
+    margin-right: 50rem;
+    background-color: red;
+    margin-top: -6.5rem;
+    padding-top: 2rem;
+
+
+} */
+
+/* .signup_details{
+    margin-left: -50px;
+    position: relative;
+    z-index: 2;
+} */
+
+
+/* .input{
+    height: 34px;
+    text-indent: 10px;
+    font-size: 16x;
+} */
+
+/* input:invalid[focused = "true"] ~ p{
+    display: block;
+} */
+
+/* .input::placeholder{
+    font-size: 10px;
+} */
+
+
+/* button:disabled{
+    color: red;
+} */
+/* .input.name{
+    color:red ;
+} */
+
+label{
+    /* font-size: 14px; */
+    margin-bottom: 5px;
+    margin-top: .2rem;
+
+}
+
+/* .pwd_div, .email_div{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+} */
+
+/* .input-firstName::placeholder,
+.input-lastName::placeholder,
+.input-role::placeholder,
+.input-phoneNumber::placeholder,
+.input-email::placeholder,
+.input-password::placeholder{
+    color: rgb(188, 178, 178);
+    font-size: 13px;
+
+  }
+
+  .input-firstName,
+  .input-lastName,
+  .input-role,
+  .input-email,
+  .input-password,
+  .input-phoneNumber{
+    height:1.5rem;
+    padding: 15px;
+    font-size: 15px;
+    width: 550px;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+  .input-firstName:focus,
+  .input-lastName:focus,
+  .input-role:focus,
+  .input-email:focus,
+  .input-password:focus,
+  .input-phoneNumber:focus{
+    border: 0.5px solid #6a8fe5;
+    border-radius: 2px;
+
+
+  } */

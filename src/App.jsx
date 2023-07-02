@@ -7,6 +7,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Context } from "./Context";
+import Landing from './components/LandingPage/Landing';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
+import ForgotPwd from "./components/ForgotPwd/ForgotPwd";
+import Token from './components/Token/Token';
+import Confirmation from './components/Confirmation/Confirmation'
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -58,13 +65,25 @@ function App() {
       <Context>
       <ToastContainer />
 
+      {loggedIn ? (
         <div className="App">
-          <Navbar handleLogout={handleLogout} selectedItem={selectedItem} photo={photo}/>
-          <div className="sideandpage">
-            <Side />
-            <PageContent handlePhotoChange={handlePhotoChange}/>
-          </div>
-        </div>
+      <Navbar handleLogout={handleLogout} selectedItem={selectedItem} photo={photo}/>
+      <div className="sideandpage">
+        <Side />
+        <PageContent selectedItem={selectedItem}  onItemSelected={handleItemSelected} handlePhotoChange={handlePhotoChange}/>
+      </div>
+       </div>
+      ):(
+        <Routes>
+        <Route exact path="/" element={<Landing/>}/>
+        <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/signup" element={<Signup/>}/>
+        <Route exact path="/forgotpwd" element={<ForgotPwd/>}/>
+        <Route exact path="/token" element={<Token/>}/>
+        <Route exact path="/confirmation" element={<Confirmation/>}/>
+        </Routes>
+        )
+      }
         </Context>
     </Router>
         // <Route path='/change-password' element={< ParentChangePsw/>}/>
@@ -73,3 +92,4 @@ function App() {
 }
 
 export default App;
+

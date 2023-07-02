@@ -1,0 +1,34 @@
+/* .resetPasswordLink{
+    padding: 1rem 42rem;
+} */
+.FogotcomfirmationContainer{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    position: absolute;
+    border: 1.5px solid #0744d3;
+    background: #FFFFFE;
+    top: -2rem;
+    right: -2rem;
+    width: 550px;
+    height: 300px;
+    /* box-shadow: 0 0 10px rgba(7, 7, 44, 0.2); */
+    transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Fogot_confirmation{
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.Fogot_reset_password{
+    color: #0744D3;
+    font-weight: 900;
+    font-size: 14px;
+}
+.Fogot_reset{
+    font-weight: 700;
+    font-size: 16px;
+}

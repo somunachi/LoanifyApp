@@ -1,0 +1,238 @@
+.bodyContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: max-content;
+  background-color: rgba(240, 244, 252, 0.8);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.login__icon {
+  position: absolute;
+  right: 0;
+  top: 10.8rem;
+  margin-right: 1rem;
+}
+.body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 10rem;
+  /* justify-content: center; */
+
+  margin: 0;
+  padding: 0;
+}
+.main_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Helvetica";
+  position: relative;
+  z-index: 2;
+}
+.welcome {
+  font-family: Helvetica;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  height: 24px;
+  margin-bottom: 50px;
+}
+.login {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(2, 2, 42);
+  border-radius: 5px;
+  width: 500px;
+  height: 52px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.login_text {
+  align-content: center;
+}
+.form_input::placeholder {
+  font-weight: 600;
+  font-size: 16px;
+}
+.form_input {
+  height: 54px;
+  width: 500px;
+  align-items: center;
+  display: flex;
+  align-self: center;
+  outline: none;
+  border: none;
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-bottom: .5rem;
+  position: relative;
+}
+.form_input:focus {
+  border: 0.5px solid #6a8fe5;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+  /* margin-bottom: 5rem; */
+  border: transparent;
+  outline: none;
+  transition: all 0.5s;
+  /* background-color: red; */
+}
+.sidepic {
+  height: 750px;
+  width: 498px;
+}
+.signup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.signuptext {
+  color: #717070;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.signuplink {
+  color: #0744d3;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+}
+.link {
+  color: rgb(2, 2, 42);
+}
+
+.reveal {
+  position: absolute;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  margin-left: -65px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.forgotpwd {
+  font-family: "Helvetica";
+  font-style: italic;
+  color: rgb(2, 2, 42);
+  font-weight: 700;
+  /* margin-top: 1rem; */
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  margin-top: -.1rem;
+  text-decoration: none;
+  /* background-color: red; */
+}
+.errMsg {
+  font-size: 12px;
+  /* margin-top: 1rem; */
+  /* margin-bottom: .5rem; */
+  color: red;
+  position: absolute;
+  /* background-color: purple; */
+}
+
+.logo {
+  margin-left: -6rem;
+  height: 220px;
+  width: 150px;
+  margin-top: -30rem;
+}
+.right_login_page{
+    /* display: flex; */
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    /* position: relative; */
+
+}
+
+@media (min-width: 500px) and (max-width: 768px){
+    .right_login_page{
+        justify-content: center;
+        /* background-color: red; */
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+
+    }
+    .body{
+        display: flex;
+        align-items: center ;
+        justify-content: space-evenly;
+        background-color: blue;
+    }
+    /* .login__icon {
+        top: 10.7rem;
+        margin-right: 4rem;
+      }
+      .sidepic {
+        display: none;
+      }
+      .input {
+        gap: 25px;
+      }
+      
+      .form_input {
+        height: 54px;
+        width: 460px;
+        padding: 20px;
+        font-size: 16px;
+      }
+      .logo {
+        margin-top: -48rem;
+      } */
+      .main_login {
+        display: flex;
+        align-items: center;
+        /* margin-left: -6rem;  */
+        /* display: flex; */
+        justify-content: center;
+        background-color: red;
+        /* width: 400px; */
+
+
+      }
+      .sidepic {
+        display: none;
+      }
+      .login {
+        width: 460px;
+      }
+      .forgotpwd {
+        width: 460px;
+      }
+}

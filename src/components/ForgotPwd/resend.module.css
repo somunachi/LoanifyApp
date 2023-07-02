@@ -1,0 +1,33 @@
+.Resendclose{
+    display: flex;
+    justify-content: end;
+    /* background-color: red; */
+}
+.Resendclose img{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.ResendcomfirmationContainer{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    position: absolute;
+    border: 1px solid #04297F;
+    background: #FFFFFE;
+    top: -2rem;
+    width: 500px;
+    height: 330px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Resend_confirmation{
+    display: grid;
+    place-items: center;
+}
+.Resend_confirmation p{
+    font-weight: 700;
+    font-size: 16px;
+}

@@ -25,14 +25,14 @@ import Documents from './ClientOverview/overview/Documents';
 import ParentOverview from './ClientOverview/ParentOverview';
 import ParentChangePsw from './SettingsPage/PopUps/ParentChangePsw';
 
-function PageContent({photo}) {
+function PageContent({photo, selectedItem}) {
   return (
     <div className='PageContent'>
         <Routes>
-        <Route path='/dashboard' element={<Dashboard />}/>
+        <Route path='/dashboard' element={<Dashboard selectedItem={selectedItem}   />}/>
         <Route path='/loans' element={<LoanTab />}/>
         <Route path='/profile' element={<Profile />}/>
-        <Route path='//messages/user' element={<UserMsg />}/>
+        <Route path='/messages/user' element={<UserMsg />}/>
         <Route path='/messages' element={<Messages />}/>
         <Route path='/notifications' element={<Notifications />}/>
         <Route path='/settings' element={<Settings />}/>
