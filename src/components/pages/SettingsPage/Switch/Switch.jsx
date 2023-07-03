@@ -8,9 +8,10 @@ const Switch = ({ onToggle }) => {
   const [toggle, setToggle] = useState(false);
 
   const handleChange = (e) => {
+    console.log('yes')
     const newToggleValue = e.target.checked;
-    setToggle(newToggleValue);
     onToggle(newToggleValue);
+    setToggle(newToggleValue);
   };
 
   return (
@@ -26,7 +27,7 @@ const Switch = ({ onToggle }) => {
         />
         <label className={style.label} htmlFor='label'>
           <span className={style.inner}></span>
-          <span className={style.switch} />
+          <span className={style.switch}></span>
         </label>
       </div>
     </div>

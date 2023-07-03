@@ -20,6 +20,7 @@
 .support_container{
     width: 1040px;
     margin-top: 3rem;
+    position: fixed;
 }
 .support_cell{
     background-color: rgba(240, 244, 252, 0.8);
@@ -57,11 +58,11 @@
 .toll{
    position: absolute;
     padding: 10px;
-    top: 375px;
+    /* top: 375px; */
+    top: 17rem;
     display: flex;
     justify-content: space-between;
-    gap: 54.5rem;
-   
+    gap: 54rem;
 }
 .toll span{
   color: rgba(105, 105, 106, 0.8);
@@ -77,8 +78,7 @@
   align-items: center;
   /* top: 37rem; */
   margin-top: 17rem;
-border-radius: 5px;
-
+  border-radius: 5px;
   border: 1px solid rgb(155, 155, 211);
 
 }
@@ -166,3 +166,45 @@ border-radius: 5px;
     height: 80px;
   }
   
+  /* support confirmation */
+  .closeSupport{
+    display: flex;
+    justify-content: end;
+}
+.closeSupport img{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.supportConfirmationContainer{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    position: absolute;
+    border: 1px solid #04297F;
+    background: #FFFFFE;
+    bottom: -4rem;
+    left: 18rem;
+    width: 480px;
+    height: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.supportconfirmation{
+    display: grid;
+    place-items: center;
+}
+.supportconfirmation p{
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: -40px;
+}
+.ComfirmChangePage{
+    background: #F0F4FC;
+    border-radius: 5px;
+    color: black;
+    position: fixed;
+    margin: 15rem 20rem 0rem 17rem;
+    padding-top: 8rem;
+}

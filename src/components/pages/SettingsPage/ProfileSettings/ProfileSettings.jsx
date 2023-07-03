@@ -26,7 +26,7 @@ export const ProfileSettings = () => {
   const canvasRef = useRef(null);
 
   const handleStatusToggle = (toggleValue) => {
-    setStatus((prevStatus) => (prevStatus === "Active" ? "Inactive" : "Active"));
+    setStatus((prevStatus) => (prevStatus == "Active" ? "Inactive" : "Active"));
   };
   const handleGalleryClick = () => {
     fileInputRef.current.click(); 
@@ -173,6 +173,8 @@ export const ProfileSettings = () => {
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
+
+
 
   return (
         <div>

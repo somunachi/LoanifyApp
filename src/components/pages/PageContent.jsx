@@ -26,19 +26,24 @@ import ParentOverview from './ClientOverview/ParentOverview';
 import ParentChangePsw from './SettingsPage/PopUps/ParentChangePsw';
 
 function PageContent({photo, selectedItem}) {
+
+  const handleItemSelected = (item) => {
+    setSelectedItem(item);
+  };
+
   return (
     <div className='PageContent'>
         <Routes>
-        <Route path='/dashboard' element={<Dashboard selectedItem={selectedItem}   />}/>
-        <Route path='/loans' element={<LoanTab />}/>
-        <Route path='/profile' element={<Profile />}/>
-        <Route path='/messages/user' element={<UserMsg />}/>
-        <Route path='/messages' element={<Messages />}/>
-        <Route path='/notifications' element={<Notifications />}/>
-        <Route path='/settings' element={<Settings />}/>
-        <Route path='/clients' element={<Clients />}/>
-        <Route path="/settings/profile" element={<ProfileSettings photo={photo}/>} />
-        <Route path="/reports" element={<Report />} />
+        <Route exact path='/dashboard' element={<Dashboard selectedItem={selectedItem} onItemSelected={handleItemSelected}  />}/>
+        <Route exact path='/loans' element={<LoanTab />}/>
+        <Route exact path='/profile' element={<Profile selectedItem={selectedItem} onItemSelected={handleItemSelected}/>}/>
+        <Route exact path='/messages/user' element={<UserMsg />}/>
+        <Route exact path='/messages' element={<Messages />}/>
+        <Route exact path='/notifications' element={<Notifications />}/>
+        <Route exact path='/settings' element={<Settings />}/>
+        <Route exact path='/clients' element={<Clients />}/>
+        <Route exact path="/settings/profile" element={<ProfileSettings photo={photo}/>} />
+        <Route exact path="/reports" element={<Report />} />
         <Route
           exact
           path="/settings/userpermission"
@@ -46,14 +51,14 @@ function PageContent({photo, selectedItem}) {
         />
         <Route exact path="/settings/notification" element={<Notification />} />
         <Route exact path="/settings/security" element={<Security />} />
-        <Route path='/support' element={<Support />}/>
-        <Route path='/support/faq' element={<Faq />}/>
-        <Route path='/loans/overview/general' element={<LoanOverview />}/>
-        <Route path='/loans/overview/loan-contract' element={<LoansContract />}/>
-        <Route path='/clients/overview/general' element={<Overview />}/>
-        <Route path='/clients/overview/-details' element={<LoanDetails />}/>
-        <Route path='/clients/overview/risk-score' element={<RiskScore />}/>
-        <Route path='/clients/overview/documents' element={<Documents />}/>
+        <Route exact path='/support' element={<Support />}/>
+        <Route exact path='/support/faq' element={<Faq />}/>
+        <Route exact path='/loans/overview/general' element={<LoanOverview />}/>
+        <Route exact path='/loans/overview/loan-contract' element={<LoansContract />}/>
+        <Route exact path='/clients/overview/general' element={<Overview />}/>
+        <Route exact path='/clients/overview/-details' element={<LoanDetails />}/>
+        <Route exact path='/clients/overview/risk-score' element={<RiskScore />}/>
+        <Route exact path='/clients/overview/documents' element={<Documents />}/>
         </Routes>
     </div>
   )

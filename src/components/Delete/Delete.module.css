@@ -1,0 +1,63 @@
+.deleteBody{
+ position: absolute;
+ background-color: white;
+ width: 23rem;
+ height: 9rem;
+ padding: 1rem;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ border: 0.5px solid #6A8FE5;
+ transition: all 0.3s ease;
+ top: 0;
+ left: 1rem;
+ right: 0;
+ z-index: 99;
+ /* bottom: 0; */
+ margin: 1rem auto;
+ /* background-color: red; */
+}
+
+.deleteBody h3{
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+}
+
+.deleteButtonsBlock{
+/* background-color: burlywood; */
+width: 14rem;
+height: 2rem;
+display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.yesDelete, .noDelete{
+    width: 5rem;
+    height: 2rem;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.yesDelete{
+ background-color:  #D30744;
+ color: white;
+}
+
+.yesDelete:hover{
+    background-color:  #7a1c38; 
+}
+
+.noDelete{
+    background-color:  #717070;
+    color: white;
+}
+
+.noDelete:hover{
+    background-color:  #3d3a3a;
+}

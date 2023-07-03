@@ -32,7 +32,7 @@ const Support = () => {
     if (showConfirmation) {
       const timer = setTimeout(() => {
         setShowConfirmation(false);
-      }, 3000);
+      }, 2000);
 
       return () => clearTimeout(timer);
     }

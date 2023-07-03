@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from '../Login/Login';
 import { ResetPassword } from './ResetPassword';
+import { useState } from 'react';
 
 export const ParentResetSuccess = () => {
 
@@ -13,9 +14,9 @@ export const ParentResetSuccess = () => {
   return (
     <div>
         {!showConfirmation ? (
-            <Login onSuccess={handleSuccess} />
+          <ResetPassword onSuccess={handleSuccess}/>
           ) : (
-            <ResetPassword onSuccess={handleSuccess}/>
+            <Login />
       )}
     </div>
   )

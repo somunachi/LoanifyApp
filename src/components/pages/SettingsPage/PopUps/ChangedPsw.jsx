@@ -2,15 +2,28 @@ import { useState } from "react";
 import style from "./changedpsw.module.css";
 import PropTypes from "prop-types";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
+import man from "../../../images/business guy.png";
+import logoIcon from "../../../../assets/Group 7753.svg";
+import ComfirmChangePage from "./ComfirmChangePage";
+// import style from '../../../ResetPassword/resetpassword.module.css'
 // import PropTypes from 'prop-types';
 
 const INITINPUT = { old_password: "", new_password: "", confirm_password: "" };
 
-const ChangedPsw = ({ onSuccess }) => {
+const ChangedPsw = () => {
   const [form, setForm] = useState(INITINPUT);
   const [errorUI, setErrorUI] = useState({});
   const [newPasswordVisible, setNewPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  // const handlePasswordPop =()=>{
+  //   setChange(true)
+  // }
+
+  const handleSuccess = () => {
+    setShowConfirmation(true);
+  };
 
   const toggleNewPasswordVisibility = () => {
     setNewPasswordVisible((prevVisible) => !prevVisible);
@@ -97,31 +110,38 @@ const ChangedPsw = ({ onSuccess }) => {
       return;
     }
 
+    handleSuccess();
     setForm(INITINPUT);
     console.log("Form submitted");
     onSuccess();
+    
   };
-  // className={style.editPopUp_change_psw}
+  
   return (
-    // <div>
-    //   <div>
-    //     <div >
-          <div className={style.editPopUp_form}>
-          <div className={style.editPopUp_header_text}>
-          <h4>Change Password</h4>
-           </div>
+    <div className={style.ChangedPsw_holder}>
+      <div className={style.ChangedPsw_holder_section}>
+        <div className={style.image}>
+          <img src={man} alt="sidepic" className={style.sideimg} />
+        </div>
+        <div>
+          <div className={style.ChangedPsw__whole}>
+             <img src={logoIcon} alt="logo" className={style.ChangedPsw_logo} />
+          </div>
+          <div className={style.ChangedPsw_details}>
+            <h1 className={style.ChangedPsw_text}>Change Password</h1>
             <form
               onSubmit={handleSubmit}
-              className={style.editPopUp_header}
+              className={style.ChangedPsw_form}
             >
-              <div className={style.passwordWrapper}>
-                <div className={style.editPasswordBlock_diff}>
+              <div className={style.ChangedPswpasswordWrapper}>
+                <div className={style.ChangedPswcodeBlock}>
                   <input
                     type="password"
                     id="old_password"
                     onChange={handleChange}
                     value={form.old_password}
                     placeholder="Old Password"
+                    className={style.ChangedPsw__input}
                   />
                 </div>
                 <div className={style.error}>
@@ -133,14 +153,15 @@ const ChangedPsw = ({ onSuccess }) => {
                 </div>
               </div>
 
-              <div className={style.passwordWrapper}>
-                <div className={style.editPasswordBlock}>
+              <div className={style.ChangedPswpasswordWrapper}>
+                <div className={style.ChangedPswcodeBlock}>
                   <input
                     type={newPasswordVisible ? "text" : "password"}
                     id="new_password"
                     value={form.new_password}
                     onChange={handleChange}
                     placeholder="New Password"
+                    className={style.ChangedPsw__input}
                   />
                   {newPasswordVisible ? (
                     <BsEye
@@ -163,8 +184,8 @@ const ChangedPsw = ({ onSuccess }) => {
                 </div>
               </div>
 
-              <div className={style.passwordWrapper}>
-                <div className={style.editPasswordBlock}>
+              <div className={style.ChangedPswpasswordWrapper}>
+                <div className={style.ChangedPswcodeBlock}>
                   <input
                     type={confirmPasswordVisible ? "text" : "password"}
                     id="confirm_password"
@@ -172,6 +193,7 @@ const ChangedPsw = ({ onSuccess }) => {
                     name="confirm_password"
                     onChange={handleChange}
                     placeholder="Confirm Password"
+                    className={style.ChangedPsw__input}
                   />
                   {confirmPasswordVisible ? (
                     <BsEye
@@ -193,15 +215,16 @@ const ChangedPsw = ({ onSuccess }) => {
                   ) : null}
                 </div>
               </div>
-              <div></div>
+
               <button type="submit" className={style.changePasswordBtn}>
                 Change Password
               </button>
+              {showConfirmation && <ComfirmChangePage />}
             </form>
           </div>
-    //     </div>
-    //   </div>
-    // </div>
+          </div>
+      </div>
+    </div>
   );
 };
 
@@ -210,3 +233,6 @@ ChangedPsw.propTypes = {
 };
 
 export default ChangedPsw;
+
+
+

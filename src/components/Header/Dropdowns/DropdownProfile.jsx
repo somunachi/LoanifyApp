@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import dropcss from './Dropdown.module.css';
 
-function DropdownProfile({ onClose, handleLogout }) {
+function DropdownProfile({ onClose }) {
   const [visible, setVisible] = useState(true);
 
   const handleFixClick = () => {
@@ -21,6 +21,14 @@ function DropdownProfile({ onClose, handleLogout }) {
     return null;
   }
 
+  const handleLogout = () => {
+    console.log("logout")
+    localStorage.removeItem('token');
+    // setLoggedIn(false);
+    // Redirect the user to the login page
+    window.location.href = '/login';
+  };
+
   return (
     <div className={dropcss.profile_container}>
       <div className={dropcss.picon}>
@@ -34,7 +42,7 @@ function DropdownProfile({ onClose, handleLogout }) {
           <Link to="/settings/profile">
             <li onClick={handleItemClick}>Profile Settings</li>
           </Link>
-          <li
+          <Link to='/login'><li
             style={{ cursor: 'pointer', color: 'red' }}
             onClick={() => {
               handleLogout();
@@ -44,15 +52,16 @@ function DropdownProfile({ onClose, handleLogout }) {
           >
             Log Out
           </li>
+          </Link>
         </ul>
       </div>
     </div>
   );
 }
 
-DropdownProfile.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired,
-};
+// DropdownProfile.propTypes = {
+//   onClose: PropTypes.func.isRequired,
+//   handleLogout: PropTypes.func.isRequired,
+// };
 
 export default DropdownProfile;

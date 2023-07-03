@@ -7,14 +7,24 @@ import { BiChevronRight } from 'react-icons/bi';
 import Navbar from "../../../Header/Navbar";
 import Side from "../../../SideMenu/Side";
 import "../../../../App.css";
+import Delete from '../../../Delete/Delete';
 
 
 export const Security = () => {
   const [activeTab, setActiveTab] = useState("Security");
+  const [popDelete, setPopDelete] = useState(false);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+
+  const handleDeletePop =()=>{
+    setPopDelete(true)
+  }
+
+  const handleCloseDelete =()=>{
+    setPopDelete(false)
+  }
   
 
   return (
@@ -93,7 +103,8 @@ export const Security = () => {
             <h4>Delete Account</h4>
             <p>Permanently delete your account</p>
           </div>
-          <Link  path='/signup' className={style.delete}>Delete</Link>
+          <p onClick={handleDeletePop} className={style.delete}>Delete </p>
+          {popDelete && <Delete handleCloseDelete={handleCloseDelete} handleDeleteConfirmed={handleCloseDelete}/>}
         </div>
 
       </div>

@@ -102,8 +102,8 @@ function Navbar({ handleLogout }) {
   );
 }
 
-Navbar.propTypes = {
-  selectedItem: PropTypes.string.isRequired,
-};
+// Navbar.propTypes = {
+//   selectedItem: PropTypes.string.isRequired,
+// };
 
 export default Navbar;

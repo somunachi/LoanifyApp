@@ -113,7 +113,7 @@ const Login = () => {
   };
 
   return (
-    <body className={styles.bodyContainer}>
+    <div className={styles.bodyContainer}>
       <section className={styles.body}>
         <div>
           <img src={business} alt="picture" className={styles.sidepic} />
@@ -203,7 +203,7 @@ const Login = () => {
           </div>
         </div>
       </section>
-    </body>
+    </div>
   );
 };
 
