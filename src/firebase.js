@@ -1,8 +1,7 @@
 import { initializeApp} from 'firebase/app'
-require('dotenv').config();
 
 const firebaseConfig = {
-  apiKey:  process.env.API_KEY,
+  apiKey: "AIzaSyAgkCOjhduN3OUnrJnk4mlozwg-m6ohW7s",
   authDomain: "loan-3ecd8.firebaseapp.com",
   projectId: "loan-3ecd8",
   storageBucket: "loan-3ecd8.appspot.com",
